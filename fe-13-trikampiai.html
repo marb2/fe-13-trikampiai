@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>fe-13-trikampiai</title>    
+    </head>
+    <body>
+        <div id="v"></div>
+        <script>
+            var a = 3;
+            var b = 4;
+            var c = 5;
+            var status=0; //0 - trikampis status; 1 - ne
+            var p = (a + b + c) /2; //pusperimetris
+            var S = Math.round(Math.sqrt(p*(p-a)*(p-b)*(p-c))); //suapvalintas plotas, Herono formule
+            var galimas = a+b>c && b+c>a && a+c>b; //ar galimas trikampis
+            if (galimas == true) {
+            console.log('Trikampis yra galimas'); }
+            else (alert('Trikampis yra negalimas'));
+            if (( c == Math.sqrt ( Math.pow(a,2) + Math.pow(b,2)) || b == Math.sqrt ( Math.pow(a,2) + Math.pow(c,2)) || a == Math.sqrt ( Math.pow(b,2) + Math.pow(c,2)) )&& galimas) {
+            var elementas = document.getElementById("v");
+            elementas.innerHTML = 'Trikampis yra statusis, jo krastines: ' + a +' ' + b +' ' + c +';' + ' plotas: '+ S;
+            status++ }
+            if ( (a==b && b==c && a==c) && galimas ) {
+            var elementas = document.getElementById("v");
+            elementas.innerHTML = 'Trikampis yra lygiakrastis, jo krastines: ' + a +' ' + b +' ' + c +';' + ' plotas: '+ S; }
+            else if (((a==b || b==c || a==c) && (a!=b || b!=c || a!=c)) && galimas) { 
+            var elementas = document.getElementById("v");
+            elementas.innerHTML = 'Trikampis yra lygiasonis, jo krastines: ' + a +' ' + b +' ' + c +';' + ' plotas: '+ S;}
+            else if (((a!=b && b!=c && a!=c)&& galimas) &&status==0) {
+            var elementas = document.getElementById("v");
+            elementas.innerHTML = 'Trikampis yra ivairiakrastis, jo krastines: ' + a +' ' + b +' ' + c +';' + ' plotas: '+ S; }
+        </script>
+    </body>
+</html>
